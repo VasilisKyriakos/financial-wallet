@@ -8,9 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.lang.String;
 
-
 public class Transfer {
-
     private BankAccount from;
     private BankAccount to;
     private float amount;
@@ -22,7 +20,6 @@ public class Transfer {
         from.addBalance(-amount);
         pending = false;
     }
-
 
 
 

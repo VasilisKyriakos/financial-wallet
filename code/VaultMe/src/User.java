@@ -1,14 +1,10 @@
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.lang.String;
 
-public class user {
+public class User{
+
+
+    public static ArrayList<User> userList = new ArrayList<User>();
 
     private int id;
     private String name;
@@ -101,8 +97,52 @@ public class user {
     }
 
 
+
+
+    public static boolean exist(String name, ArrayList<User> List)
+    {
+        for(int i=0; i<List.size(); i++)
+        {
+            if(name.equals(List.get(i).getName())){
+                return true;}
+        }
+        return false;
+    }
+
+
+
+    public static int findIndex (String name, ArrayList<User> List)
+    {
+        for(int i=0; i<List.size(); i++) {
+
+            if(name.equals(List.get(i).getName())) {
+                return i;
+            }
+        }
+        return 0;
+    }
+
+
+    public static void showUsers(){
+        int temp;
+        temp= userList.size();
+
+        if(temp==0) {System.out.println("No posts yet");}
+        else
+        {
+            System.out.println("\n****** Users ******");
+            for(int i=0; i<userList.size(); i++){
+                System.out.println( (i+1)+ ". " +userList.get(i).name());
+            }
+        }
+    }
+
     public String toString() {
-        return "User id=" + id + ", Name=" +name+  ", mobile=" + mobile + ", password=" + password + ", balance = " + wallet.bankAccounts.get(0).getBalance();
+        return "\n--" +name+ "'s Bank Account\n Balance: " + wallet.bankAccounts.get(0).getBalance();
+    }
+
+    public String name() {
+        return name;
     }
 
 

@@ -10,7 +10,7 @@ public class BankAccount {
     }
 
     public boolean checkBalance(float amount){
-        return amount>balance;
+        return amount<=balance;
     }
 
 
