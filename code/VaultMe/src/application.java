@@ -112,16 +112,25 @@ public class application{
 
                             //System.out.println(instance.userList.get(j).getWallet().bankAccounts.get(0).checkBalance(amount));
 
-                            if (loggedInUser.getWallet().bankAccounts.get(0).checkBalance(amount)) {
-                                Transfer transaction = new Transfer(loggedInUser.getWallet().bankAccounts.get(0),
-                                        k.getWallet().bankAccounts.get(0), amount);
+
+                            Transfer transaction = new Transfer(application.loggedInUser.getWallet().bankAccounts.get(0),
+                                    k.getWallet().bankAccounts.get(0), amount);
+
+                            BankSystem.validateTransaction(transaction);
+
+                            if(transaction.isValid())
+                            {
                                 transaction.executeTransfer();
-                            } else {
-                                System.out.println("\n!This amount exceeds your balance!");
+                            }
+                            else
+                            {
+                                System.out.println("\nNot Valid Transaction");
                             }
 
-                            System.out.println(loggedInUser.toString());
-                            System.out.println(k.toString());
+
+
+
+
 
                             break;
 

@@ -14,6 +14,8 @@ public class Transfer {
     private float amount;
     private boolean pending;
 
+    private boolean valid;
+
 
     public void executeTransfer(){
         to.addBalance(amount);
@@ -21,7 +23,13 @@ public class Transfer {
         pending = false;
     }
 
+    public boolean isValid() {
+        return valid;
+    }
 
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
 
     public BankAccount getFrom() {
         return from;
