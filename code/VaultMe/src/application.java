@@ -12,10 +12,7 @@ public class application{
         boolean flag = false;
         boolean exit = false;
         boolean logout = false;
-
-
-
-
+        
         Scanner input = new Scanner(System.in);
 
         User user1 = new User();
@@ -108,15 +105,13 @@ public class application{
                             User k =  User.findUser(to);
 
                             System.out.println(" \n-- Give Transfer Amount:");
+
                             float amount = input.nextInt();
 
-                            //System.out.println(instance.userList.get(j).getWallet().bankAccounts.get(0).checkBalance(amount));
-
-
-                            Transfer transaction = new Transfer(application.loggedInUser.getWallet().bankAccounts.get(0),
-                                    k.getWallet().bankAccounts.get(0), amount);
+                            Transfer transaction = new Transfer(application.loggedInUser.getWallet().bankAccounts.get(0),k.getWallet().bankAccounts.get(0), amount);
 
                             BankSystem.validateTransaction(transaction);
+
 
                             if(transaction.isValid())
                             {
@@ -126,11 +121,6 @@ public class application{
                             {
                                 System.out.println("\nNot Valid Transaction");
                             }
-
-
-
-
-
 
                             break;
 
