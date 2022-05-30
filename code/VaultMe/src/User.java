@@ -4,7 +4,6 @@ import java.lang.String;
 public class User{
 
 
-    public static ArrayList<User> userList = new ArrayList<User>();
 
     private int id;
     private String name;
@@ -13,6 +12,8 @@ public class User{
     private String type;
 
     private eWallet wallet;
+
+    private Contacts contact;
 
     private String username;
     private String password;
@@ -98,12 +99,21 @@ public class User{
 
 
 
+    public Contacts getContacts() {
+        return contact;
+    }
 
-    public static boolean exist(String name, ArrayList<User> List)
+    public void setContacts(Contacts _contact) {
+        contact = _contact;
+    }
+
+
+
+    public static boolean exist(String name)
     {
-        for(int i=0; i<List.size(); i++)
+        for(int i=0; i<application.userList.size(); i++)
         {
-            if(name.equals(List.get(i).getName())){
+            if(name.equals(application.userList.get(i).getName())){
                 return true;}
         }
         return false;
@@ -111,7 +121,7 @@ public class User{
 
 
 
-    public static int findIndex (String name, ArrayList<User> List)
+    public  int findIndex (String name, ArrayList<User> List)
     {
         for(int i=0; i<List.size(); i++) {
 
@@ -123,19 +133,33 @@ public class User{
     }
 
 
+    public static User findUser (String name)
+    {
+        for(int i=0; i<application.userList.size(); i++) {
+
+            if(name.equals(application.userList.get(i).getName())) {
+                return application.userList.get(i);
+            }
+        }
+        return null;
+    }
+
+
     public static void showUsers(){
         int temp;
-        temp= userList.size();
+        temp= application.userList.size();
 
         if(temp==0) {System.out.println("No posts yet");}
         else
         {
             System.out.println("\n****** Users ******");
-            for(int i=0; i<userList.size(); i++){
-                System.out.println( (i+1)+ ". " +userList.get(i).name());
+            for(int i=0; i<application.userList.size(); i++){
+                if(application.loggedInUser != application.userList.get(i))
+                System.out.println(application.userList.get(i).name());
             }
         }
     }
+
 
     public String toString() {
         return "\n--" +name+ "'s Bank Account\n Balance: " + wallet.bankAccounts.get(0).getBalance();
@@ -144,6 +168,22 @@ public class User{
     public String name() {
         return name;
     }
+
+
+    /*public static void showContacts(User user){
+
+        int temp;
+        temp= Contacts.contacts.size();
+
+        if(temp==0) {System.out.println("\n !No Contacts yet!");}
+        else
+        {
+            System.out.println("\n****** Users ******");
+            for(int i=0; i<Contacts.contacts.size(); i++){
+                System.out.println( (i+1)+ ". " +contacts.get(i).name());
+            }
+        }
+    }*/
 
 
 }

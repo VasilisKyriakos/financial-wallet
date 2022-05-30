@@ -5,18 +5,19 @@ import java.util.*;
 
 public class application{
 
+    static User loggedInUser = null;
+    static ArrayList<User> userList = new ArrayList<User>();
     public static void main(String[] args) {
 
         boolean flag = false;
         boolean exit = false;
         boolean logout = false;
-        int j=0;
-        int k =0;
+
+
 
 
         Scanner input = new Scanner(System.in);
 
-        User instance = new User();
         User user1 = new User();
         User user2 = new User();
         User user3 = new User();
@@ -25,9 +26,11 @@ public class application{
         user2.setName("Thodoris");
         user3.setName("Kyriaki");
 
-        instance.userList.add(user1);
-        instance.userList.add(user2);
-        instance.userList.add(user3);
+        userList.add(user1);
+        userList.add(user2);
+        userList.add(user3);
+
+
 
         eWallet wallet1 = new eWallet();
         wallet1.bankAccounts.add(new BankAccount("GR1234567", 50.445f));
@@ -42,80 +45,110 @@ public class application{
         user3.setWallet(wallet3);
 
 
+        Contacts contact1 = new Contacts();
+        //contact1.contacts.add(user2);
+        user1.setContacts(contact1);
+
+        Contacts contact2 = new Contacts();
+        //contact2.contacts.add(user1);
+        user2.setContacts(contact2);
+
+        Contacts contact3 = new Contacts();
+        //contact3.contacts.add(user2);
+        user3.setContacts(contact3);
+
+
         do {
-            while (flag == false) {
 
-                System.out.println("****** Enter username to login ******");
-                String username = input.next();
-                //System.out.println(instance.userList.size());
+            System.out.println("*** Type yes if you want to Login ***");
+            String ans =input.next();
 
-                if (User.exist(username, User.userList)) {
-                    flag = true;
-                    System.out.println("****** Welcome " + username + " *******");
-                    j = User.findIndex(username,User.userList);
+            if(ans.equals("yes")) {
+                logout = false;
+                flag=false;
 
-                } else if (User.exist(username, User.userList) == false)
-                    System.out.println("There is no such user.");
+                while (flag == false) {
 
-            }
+                    System.out.println("****** Enter username to login ******");
+                    String username = input.next();
+                    //System.out.println(instance.userList.size());
 
+                    if (User.exist(username)) {
+                        flag = true;
+                        System.out.println("****** Welcome " + username + " *******");
+                        loggedInUser = User.findUser(username);
 
-            while(logout==false) {
+                    } else if (User.exist(username) == false)
+                        System.out.println("There is no such user.");
 
-                System.out.println("\n****** Dashboard ******");
-                System.out.println(" 1)Transfer\n 2)Payment\n 3)Transactions\n 4)Logout");
-
-                System.out.println("\nGive a choice:");
-                int i = input.nextInt();
-
-                switch(i){
-
-                    case 1:
-
-                        User.showUsers();
-                        System.out.println(" \n-- Give  User:");
-                        String to = input.next();
-
-                        while(User.exist(to,User.userList)==false){
-                            System.out.println(" \n-- Give  User:");
-                            to = input.next();
-                        }
-
-                        k = User.findIndex(to,User.userList);
-
-                        System.out.println(" \n-- Give Transfer Amount:");
-                        float amount = input.nextInt();
-
-                        //System.out.println(instance.userList.get(j).getWallet().bankAccounts.get(0).checkBalance(amount));
-
-                        if(User.userList.get(j).getWallet().bankAccounts.get(0).checkBalance(amount))
-                        {
-                            Transfer transaction = new Transfer(User.userList.get(j).getWallet().bankAccounts.get(0),
-                                                                User.userList.get(k).getWallet().bankAccounts.get(0),amount);
-                            transaction.executeTransfer();
-                        }
-
-                        else {System.out.println("\n!This amount exceeds your balance!");}
-
-                        System.out.println(User.userList.get(j).toString());
-                        System.out.println(User.userList.get(k).toString());
-
-                        break;
-
-
-                    case 4:
-
-                        System.out.println("Do you want to logout?");
-                        String reply = input.next();
-
-                        if(reply.equalsIgnoreCase("yes"))
-                            logout=true;
-                            exit = true;
-                        break;
                 }
-            }
 
-        }while(exit==false);
+
+                while (logout == false) {
+
+                    System.out.println("\n****** Dashboard ******");
+                    System.out.println(" 1)Transfer\n 2)Contacts\n 3)Transactions\n 4)Logout");
+
+                    System.out.println("\nGive a choice:");
+                    int i = input.nextInt();
+
+                    switch (i) {
+
+                        case 1:
+
+                            User.showUsers();
+                            System.out.println(" \n-- Give  User:");
+                            String to = input.next();
+
+                            while (User.exist(to) == false) {
+                                System.out.println(" \n-- Give  User:");
+                                to = input.next();
+                            }
+
+                            User k =  User.findUser(to);
+
+                            System.out.println(" \n-- Give Transfer Amount:");
+                            float amount = input.nextInt();
+
+                            //System.out.println(instance.userList.get(j).getWallet().bankAccounts.get(0).checkBalance(amount));
+
+                            if (loggedInUser.getWallet().bankAccounts.get(0).checkBalance(amount)) {
+                                Transfer transaction = new Transfer(loggedInUser.getWallet().bankAccounts.get(0),
+                                        k.getWallet().bankAccounts.get(0), amount);
+                                transaction.executeTransfer();
+                            } else {
+                                System.out.println("\n!This amount exceeds your balance!");
+                            }
+
+                            System.out.println(loggedInUser.toString());
+                            System.out.println(k.toString());
+
+                            break;
+
+
+                        case 2:
+
+                            User.showUsers();
+                            loggedInUser.getContacts().addContact();
+
+                            break;
+
+                        case 4:
+
+                            System.out.println("Do you want to logout?");
+                            String reply = input.next();
+
+                            if (reply.equalsIgnoreCase("yes"))
+                            {
+                                logout = true;
+                                loggedInUser = null;
+                            }
+
+                            break;
+                    }
+                }
+            }else exit=true;
+        }while(exit=true);
     }
 }
 
