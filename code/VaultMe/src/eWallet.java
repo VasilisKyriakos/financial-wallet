@@ -52,8 +52,8 @@ public class eWallet {
 
         String out = "*** eWallet ***\n";
         for(BankAccount bankAccount : bankAccounts){
-            out = out.concat("" +
-                    "Iban: "+bankAccount.getIban()+ " Balance: "+bankAccount.getBalance()+"\n");
+            out = out.concat((bankAccounts.indexOf(bankAccount) + 1) +
+                    ". Iban: "+bankAccount.getIban()+ " Balance: "+bankAccount.getBalance()+"\n");
         }
         return out;
     }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.lang.String;
+import java.util.Scanner;
 
 public class User{
 
@@ -47,7 +48,7 @@ public class User{
         name = _name;
     }
 
-
+    Scanner input = new Scanner(System.in);
 
 
     public String getSurname() {
@@ -156,7 +157,7 @@ public class User{
             System.out.println("\n****** Users ******");
             for(int i=0; i<application.userList.size(); i++){
                 if(application.loggedInUser != application.userList.get(i))
-                System.out.println(application.userList.get(i).name());
+                    System.out.println(application.userList.get(i).name());
             }
         }
     }
@@ -171,20 +172,18 @@ public class User{
     }
 
 
-    /*public static void showContacts(User user){
-
-        int temp;
-        temp= Contacts.contacts.size();
-
-        if(temp==0) {System.out.println("\n !No Contacts yet!");}
-        else
-        {
-            System.out.println("\n****** Users ******");
-            for(int i=0; i<Contacts.contacts.size(); i++){
-                System.out.println( (i+1)+ ". " +contacts.get(i).name());
-            }
-        }
-    }*/
+   public BankAccount chooseBankAccount()
+   {
+       System.out.println(application.loggedInUser.getWallet().displayWallet());
+       System.out.print("Choose an account:");
+       int account = input.nextInt();
+       while(account < 1 || account > application.loggedInUser.getWallet().bankAccounts.size())
+       {
+           System.out.println("Please insert a valid option.");
+           account = input.nextInt();
+       }
+       return application.loggedInUser.getWallet().bankAccounts.get(account-1);
+   }
 
 
 }

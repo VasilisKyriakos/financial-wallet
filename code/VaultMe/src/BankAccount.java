@@ -1,9 +1,8 @@
 import java.lang.String;
-import java.util.ArrayList;
 
 public class BankAccount {
 
-    public ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+
 
     private String iban;
     private float balance;
@@ -53,8 +52,9 @@ public class BankAccount {
     public String displayTransactions(){
 
         String out = "*** Transaction List ***\n";
-        for(Transaction transaction : transactions){
-            out = out.concat("Transaction Id: "+transaction.getId()+ " Type: "+transaction.getType()+"\n");
+        for(Transaction transaction : BankSystem.transactions){
+            if(application.loggedInUser.getWallet().bankAccounts.contains(transaction.getFrom()))
+                out = out.concat("Transaction Id: "+transaction.getId()+ " Type: "+transaction.getType()+"\n");
         }
         return out;
     }

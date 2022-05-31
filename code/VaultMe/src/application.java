@@ -1,8 +1,6 @@
 import java.lang.String;
 import java.lang.*;
-import java.io.*;
 import java.util.*;
-import java.util.Random;
 
 public class application{
 
@@ -87,31 +85,29 @@ public class application{
                                         +loggedInUser.getWallet().calculateTotalBalance()+
                                             "\n***************\n");
 
-                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n 5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet");
+                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n 5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet\n 8)Pay");
 
                     System.out.println("\nGive a choice:");
                     int i = input.nextInt();
-
+                    BankAccount preferredAccount;
                     switch (i) {
 
                         case 1:
 
                             if(loggedInUser.getContacts().showContacts()){
-
+                                preferredAccount = loggedInUser.chooseBankAccount();
                                 System.out.println(" \n-- Give Transfer Amount:");
                                 float amount = input.nextInt();
 
-                                Transfer transaction = new Transfer(application.loggedInUser.getWallet().bankAccounts.get(0),
-                                        loggedInUser.getContacts().retrieveContacts().getWallet().bankAccounts.get(0), amount);
+                                Transaction transaction = new Transaction(preferredAccount,
+                                        loggedInUser.getContacts().retrieveContacts().getWallet().bankAccounts.get(0), amount, BankSystem.transactions.size() , "transfer" );
 
                                 BankSystem.validateTransaction(transaction);
 
                                 if (transaction.isValid()) {
                                     transaction.executeTransfer();
 
-                                    Random rand = new Random();
-                                    int transactionID = rand.nextInt(1000,2000);
-                                    loggedInUser.getWallet().bankAccounts.get(0).transactions.add(new Transaction(transactionID,"transfer"));
+                                    BankSystem.transactions.add(transaction);
 
                                     System.out.println(loggedInUser.toString());
                                     System.out.println(loggedInUser.getContacts().retrieveTo());
@@ -132,8 +128,8 @@ public class application{
                             break;
 
                         case 3:
-
-                            System.out.println(loggedInUser.getWallet().bankAccounts.get(0).displayTransactions());
+                            preferredAccount = loggedInUser.chooseBankAccount();
+                            System.out.println(preferredAccount.displayTransactions());
                             break;
 
                         case 4:
@@ -159,6 +155,36 @@ public class application{
 
                         case 7:
                             System.out.println(loggedInUser.getWallet().displayWallet());
+                            break;
+                        case 8:
+                            preferredAccount = loggedInUser.chooseBankAccount();
+                            PaymentInfo info = BankSystem.createPayment();
+                            System.out.println(loggedInUser.toString());
+                            System.out.println("Please confirm your Payment of "+ info.paymentAmount + " at " + info.store);
+
+                            ans = input.next();
+
+                            if(ans.equals("yes"))
+                            {
+
+                                Transaction transaction = new Transaction(preferredAccount,
+                                        BankSystem.Bank, info.paymentAmount, BankSystem.transactions.size(), "payment");
+
+                                BankSystem.validateTransaction(transaction);
+
+                                if (transaction.isValid()) {
+                                    transaction.executeTransfer();
+
+                                    BankSystem.transactions.add(transaction);
+
+                                } else {
+                                    System.out.println("\nNot Valid Transaction");
+                                }
+                            }
+                            else
+                            {
+                                System.out.println("The payment is canceled.");
+                            }
                             break;
                     }
 
