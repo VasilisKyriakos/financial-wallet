@@ -68,7 +68,6 @@ public class application{
 
                     System.out.println("****** Enter username to login ******");
                     String username = input.next();
-                    //System.out.println(instance.userList.size());
 
                     if (User.exist(username)) {
                         flag = true;
@@ -84,7 +83,7 @@ public class application{
                 while (logout == false) {
 
                     System.out.println("\n****** Dashboard ******");
-                    System.out.println(" 1)Transfer\n 2)Contacts\n 3)Transactions\n 4)Logout");
+                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Payment\n 4)Logout\n 5)Show Contacts");
 
                     System.out.println("\nGive a choice:");
                     int i = input.nextInt();
@@ -93,37 +92,30 @@ public class application{
 
                         case 1:
 
-                            User.showUsers();
-                            System.out.println(" \n-- Give  User:");
-                            String to = input.next();
-
-                            while (User.exist(to) == false) {
-                                System.out.println(" \n-- Give  User:");
-                                to = input.next();
-                            }
-
-                            User k =  User.findUser(to);
-
-                            System.out.println(" \n-- Give Transfer Amount:");
-
-                            float amount = input.nextInt();
-
-                            Transfer transaction = new Transfer(application.loggedInUser.getWallet().bankAccounts.get(0),k.getWallet().bankAccounts.get(0), amount);
-
-                            BankSystem.validateTransaction(transaction);
-
-
-                            if(transaction.isValid())
+                            if(loggedInUser.getContacts().showContacts())
                             {
-                                transaction.executeTransfer();
-                            }
-                            else
-                            {
-                                System.out.println("\nNot Valid Transaction");
-                            }
 
-                            break;
+                                System.out.println(" \n-- Give Transfer Amount:");
+                                float amount = input.nextInt();
 
+                                Transfer transaction = new Transfer(application.loggedInUser.getWallet().bankAccounts.get(0),
+                                        loggedInUser.getContacts().retrieveContacts().getWallet().bankAccounts.get(0), amount);
+
+                                BankSystem.validateTransaction(transaction);
+
+                                if (transaction.isValid()) {
+                                    transaction.executeTransfer();
+                                    System.out.println(loggedInUser.toString());
+                                    System.out.println(loggedInUser.getContacts().retrieveTo());
+                                }
+
+                                else {
+                                    System.out.println("\nNot Valid Transaction");
+                                }
+
+                                break;
+                            }
+                            else break;
 
                         case 2:
 
@@ -144,6 +136,9 @@ public class application{
                             }
 
                             break;
+
+                        case 5:
+                            loggedInUser.getContacts().showContacts();
                     }
                 }
             }else exit=true;

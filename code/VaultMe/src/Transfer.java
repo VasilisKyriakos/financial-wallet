@@ -17,10 +17,11 @@ public class Transfer {
     private boolean valid;
 
 
-    public void executeTransfer(){
+    public void executeTransfer() {
         to.addBalance(amount);
         from.addBalance(-amount);
         pending = false;
+        //System.out.println();
     }
 
     public boolean isValid() {
@@ -70,4 +71,6 @@ public class Transfer {
         this.amount = amount;
         this.pending = true;
     }
+
 }
+
