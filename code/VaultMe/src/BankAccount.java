@@ -1,9 +1,22 @@
 import java.lang.String;
+import java.util.ArrayList;
 
 public class BankAccount {
 
+    public ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+
     private String iban;
     private float balance;
+
+    private Transaction transactionObj;
+
+    public Transaction getTransactionObj() {
+        return transactionObj;
+    }
+
+    public void setTransactionObj(Transaction transactionObj) {
+        this.transactionObj = transactionObj;
+    }
 
     public void addBalance(float amount){
         balance += amount;
@@ -35,5 +48,21 @@ public class BankAccount {
         iban = _iban;
         balance = _balance;
     }
+
+
+
+    public String displayTransactions(){
+
+        String out = "*** Transaction List ***\n";
+        for(Transaction transaction : transactions){
+            out = out.concat("Transaction Id: "+transaction.getId()+ " Type: "+transaction.getType()+"\n");
+        }
+        return out;
+    }
+
+
+
+
+
 
 }

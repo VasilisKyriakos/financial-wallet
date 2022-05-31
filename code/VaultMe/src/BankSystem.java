@@ -10,8 +10,7 @@ public class BankSystem {
         if (transfer.getFrom().checkBalance(transfer.getAmount())) {
             transfer.setValid(true);
             System.out.println("\nSuccess");
-            //System.out.println(transfer.getFrom().getBalance());
-            //System.out.println(transfer.getTo().getBalance());
+
 
         } else {
             transfer.setValid(false);

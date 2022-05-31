@@ -15,6 +15,7 @@ public class User{
 
     private Contacts contact;
 
+
     private String username;
     private String password;
 

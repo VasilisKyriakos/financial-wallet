@@ -2,6 +2,7 @@ import java.lang.String;
 import java.lang.*;
 import java.io.*;
 import java.util.*;
+import java.util.Random;
 
 public class application{
 
@@ -18,15 +19,17 @@ public class application{
         User user1 = new User();
         User user2 = new User();
         User user3 = new User();
+        User user4 = new User();
 
         user1.setName("Vasilis");
         user2.setName("Thodoris");
         user3.setName("Kyriaki");
+        user4.setName("Eleni");
 
         userList.add(user1);
         userList.add(user2);
         userList.add(user3);
-
+        userList.add(user4);
 
 
         eWallet wallet1 = new eWallet();
@@ -43,17 +46,13 @@ public class application{
 
 
         Contacts contact1 = new Contacts();
-        //contact1.contacts.add(user2);
         user1.setContacts(contact1);
 
         Contacts contact2 = new Contacts();
-        //contact2.contacts.add(user1);
         user2.setContacts(contact2);
 
         Contacts contact3 = new Contacts();
-        //contact3.contacts.add(user2);
         user3.setContacts(contact3);
-
 
         do {
 
@@ -82,8 +81,13 @@ public class application{
 
                 while (logout == false) {
 
-                    System.out.println("\n****** Dashboard ******");
-                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Payment\n 4)Logout\n 5)Show Contacts");
+                    System.out.println("\n****** Dashboard " +loggedInUser.getName()+ " ******");
+
+                    System.out.println("\n*** Balance ***\n"
+                                        +loggedInUser.getWallet().bankAccounts.get(0).getBalance()+
+                                            "\n***************\n");
+
+                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n 5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet");
 
                     System.out.println("\nGive a choice:");
                     int i = input.nextInt();
@@ -92,8 +96,7 @@ public class application{
 
                         case 1:
 
-                            if(loggedInUser.getContacts().showContacts())
-                            {
+                            if(loggedInUser.getContacts().showContacts()){
 
                                 System.out.println(" \n-- Give Transfer Amount:");
                                 float amount = input.nextInt();
@@ -105,10 +108,14 @@ public class application{
 
                                 if (transaction.isValid()) {
                                     transaction.executeTransfer();
+
+                                    Random rand = new Random();
+                                    int transactionID = rand.nextInt(1000,2000);
+                                    loggedInUser.getWallet().bankAccounts.get(0).transactions.add(new Transaction(transactionID,"transfer"));
+
                                     System.out.println(loggedInUser.toString());
                                     System.out.println(loggedInUser.getContacts().retrieveTo());
                                 }
-
                                 else {
                                     System.out.println("\nNot Valid Transaction");
                                 }
@@ -122,6 +129,11 @@ public class application{
                             User.showUsers();
                             loggedInUser.getContacts().addContact();
 
+                            break;
+
+                        case 3:
+
+                            System.out.println(loggedInUser.getWallet().bankAccounts.get(0).displayTransactions());
                             break;
 
                         case 4:
@@ -139,10 +151,24 @@ public class application{
 
                         case 5:
                             loggedInUser.getContacts().showContacts();
+                            break;
+
+                        case 6:
+                            loggedInUser.getWallet().addBankAccount();
+                            break;
+
+                        case 7:
+                            System.out.println(loggedInUser.getWallet().displayWallet());
+                            break;
                     }
+
                 }
+
             }else exit=true;
+
         }while(exit=true);
+
     }
+
 }
 
