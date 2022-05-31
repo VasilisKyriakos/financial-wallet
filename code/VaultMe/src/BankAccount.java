@@ -50,7 +50,6 @@ public class BankAccount {
     }
 
 
-
     public String displayTransactions(){
 
         String out = "*** Transaction List ***\n";
@@ -59,10 +58,4 @@ public class BankAccount {
         }
         return out;
     }
-
-
-
-
-
-
 }

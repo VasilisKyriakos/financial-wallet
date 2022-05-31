@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Transaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VaultMe/BankAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/BankAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/BankSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/BankSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/Contacts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/Contacts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VaultMe/eWallet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/eWallet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/user.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contacts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eWallet.java" afterDir="false" />
     </list>

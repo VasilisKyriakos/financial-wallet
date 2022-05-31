@@ -84,7 +84,7 @@ public class application{
                     System.out.println("\n****** Dashboard " +loggedInUser.getName()+ " ******");
 
                     System.out.println("\n*** Balance ***\n"
-                                        +loggedInUser.getWallet().bankAccounts.get(0).getBalance()+
+                                        +loggedInUser.getWallet().calculateTotalBalance()+
                                             "\n***************\n");
 
                     System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n 5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet");
