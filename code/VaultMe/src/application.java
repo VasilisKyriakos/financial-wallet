@@ -85,7 +85,7 @@ public class application{
                                         +loggedInUser.getWallet().calculateTotalBalance()+
                                             "\n***************\n");
 
-                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n 5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet\n 8)Pay");
+                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n 5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet\n 8)Pay\n 9)First-Party Transfer");
 
                     System.out.println("\nGive a choice:");
                     int i = input.nextInt();
@@ -184,6 +184,48 @@ public class application{
                             else
                             {
                                 System.out.println("The payment is canceled.");
+                            }
+                            break;
+
+                        case 9:
+                            if(loggedInUser.getWallet().bankAccounts.size() > 1)
+                            {
+                                System.out.println("Please choose a Depositor Account");
+                                BankAccount depositorAccount = loggedInUser.chooseBankAccount();
+                                System.out.println("Please choose a Beneficiary Account");
+                                BankAccount beneficiaryAccount = loggedInUser.chooseBankAccount();
+                                while(depositorAccount.getIban().equals(beneficiaryAccount.getIban()))
+                                {
+                                    System.out.println("Please choose a Depositor Account");
+                                    depositorAccount = loggedInUser.chooseBankAccount();
+                                    System.out.println("Please choose a Beneficiary Account");
+                                    beneficiaryAccount = loggedInUser.chooseBankAccount();
+                                }
+                                System.out.println(" \n-- Give Transfer Amount:");
+                                float amount = input.nextInt();
+
+                                Transaction transaction = new Transaction(depositorAccount,
+                                       beneficiaryAccount, amount, BankSystem.transactions.size() , "first-party transfer" );
+
+                                BankSystem.validateTransaction(transaction);
+
+                                if (transaction.isValid()) {
+                                    transaction.executeTransfer();
+
+                                    BankSystem.transactions.add(transaction);
+
+
+                                    System.out.println(
+                                            ". Iban: "+depositorAccount.getIban()+ " Balance: "+ depositorAccount.getBalance()+"\n" +
+                                            ". Iban: "+beneficiaryAccount.getIban()+ " Balance: "+ beneficiaryAccount.getBalance()+"\n");
+                                }
+                                else {
+                                    System.out.println("\nNot Valid Transaction");
+                                }
+                            }
+                            else
+                            {
+                                System.out.println("You need more than one bank account.");
                             }
                             break;
                     }

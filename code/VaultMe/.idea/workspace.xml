@@ -4,23 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="New code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/BankAccount.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/BankAccount.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/BankSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/BankSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/Contacts.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/Contacts.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/Transaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/Transaction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/Transfer.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VaultMe/application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/application.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/VaultMe/eWallet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/eWallet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/quickTransfer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/quickTransfer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/user.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/user.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BankSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BankSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Transfer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/eWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eWallet.java" afterDir="false" />
     </list>
@@ -89,6 +76,14 @@
       <option name="presentableId" value="Default" />
       <updated>1653416039284</updated>
     </task>
+    <task id="LOCAL-00001" summary="New code">
+      <created>1654031851580</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1654031851580</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -102,7 +97,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="New code" />
+    <option name="LAST_COMMIT_MESSAGE" value="New code" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/VaultMe$application.ic" NAME="application Coverage Results" MODIFIED="1654030742838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/VaultMe$application.ic" NAME="application Coverage Results" MODIFIED="1654033644125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

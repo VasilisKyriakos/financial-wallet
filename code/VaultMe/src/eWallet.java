@@ -21,7 +21,7 @@ public class eWallet {
         String add = input.next();
 
 
-        while( add.length()!=9 && add.charAt(0) != 'G' && add.charAt(1) != 'R'){
+        while( add.length() != 9 || add.charAt(0) != 'G' || add.charAt(1) != 'R'){
 
             System.out.println("!Iban must be 9 digits!");
             System.out.println("!The first 2 letters must be GR!");
