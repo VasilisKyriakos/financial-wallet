@@ -9,29 +9,26 @@ import java.util.*;
 public class eWallet {
     public ArrayList<BankAccount> bankAccounts = new ArrayList<BankAccount>();
 
+
     boolean exist = false;
 
     public void addBankAccount() {
 
         Scanner input = new Scanner(System.in);
         System.out.println(" \n**** Add Bank Account ****");
+
         System.out.println(" \n-- Insert Iban -- ");
         String add = input.next();
 
-        char first = add.charAt(0);
-        char second = add.charAt(1);
-        System.out.println(first);
-        System.out.println(second);
-        
-        while(add.length()!=9 && first != 'G' && second != 'R'){
+
+        while( add.length()!=9 && add.charAt(0) != 'G' && add.charAt(1) != 'R'){
+
             System.out.println("!Iban must be 9 digits!");
             System.out.println("!The first 2 letters must be GR!");
 
             System.out.println(" \n-- Insert Iban -- ");
             add = input.next();
 
-            first = add.charAt(0);
-            second = add.charAt(1);
 
         }
 
@@ -43,12 +40,10 @@ public class eWallet {
 
         }*/
 
-        //User l =  User.findUser(add);
-        if(exist=false){
         Random rand = new Random();
         float randomBalance = rand.nextInt(100, 2000);
         application.loggedInUser.getWallet().bankAccounts.add(new BankAccount(add, randomBalance));
-        }
+
 
     }
 
