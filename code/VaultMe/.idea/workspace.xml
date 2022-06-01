@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="New code">
+      <change beforePath="$PROJECT_DIR$/../../5ο Παραδοτέο/code/VaultMe/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../5ο Παραδοτέο/code/VaultMe/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +48,20 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="application" type="Application" factoryName="Application" temporary="true">
+  <component name="RunManager" selected="Application.application">
+    <configuration name="application (1)" type="Application" factoryName="Application" folderName="New Folder">
+      <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-18.0.1.1/Contents/Home" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="application" type="Application" factoryName="Application" folderName="New Folder" temporary="true">
       <option name="ALTERNATIVE_JRE_PATH" value="$USER_HOME$/Library/Java/JavaVirtualMachines/openjdk-18.0.1.1/Contents/Home" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="application" />
@@ -72,6 +82,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.application (1)" />
+      <item itemvalue="Application.application" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.application" />
