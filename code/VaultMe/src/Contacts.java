@@ -6,9 +6,7 @@ public class Contacts {
 
     public String add = null;
     public  ArrayList<User> contacts = new ArrayList<User>();
-
     boolean exist = false;
-
 
 
    public boolean showContacts() {

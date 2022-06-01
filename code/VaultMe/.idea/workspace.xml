@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="New code">
+    <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/application.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/application.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VaultMe/eWallet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VaultMe/eWallet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Contacts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Contacts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/eWallet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/eWallet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,6 +100,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="New code" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/VaultMe$application.ic" NAME="application Coverage Results" MODIFIED="1654033644125" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/VaultMe$application.ic" NAME="application Coverage Results" MODIFIED="1654030742838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

@@ -85,7 +85,8 @@ public class application{
                                         +loggedInUser.getWallet().calculateTotalBalance()+
                                             "\n***************\n");
 
-                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n 5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet\n 8)Pay\n 9)First-Party Transfer");
+                    System.out.println(" 1)Transfer\n 2)Add Contact\n 3)Transactions\n 4)Logout\n " +
+                                        "5)Show Contacts\n 6)Add BankAccount\n 7)Show Wallet\n 8)Pay\n 9)First-Party Transfer");
 
                     System.out.println("\nGive a choice:");
                     int i = input.nextInt();
@@ -95,6 +96,7 @@ public class application{
                         case 1:
 
                             if(loggedInUser.getContacts().showContacts()){
+
                                 preferredAccount = loggedInUser.chooseBankAccount();
                                 System.out.println(" \n-- Give Transfer Amount:");
                                 float amount = input.nextInt();
@@ -105,12 +107,12 @@ public class application{
                                 BankSystem.validateTransaction(transaction);
 
                                 if (transaction.isValid()) {
+
                                     transaction.executeTransfer();
-
                                     BankSystem.transactions.add(transaction);
-
                                     System.out.println(loggedInUser.toString());
                                     System.out.println(loggedInUser.getContacts().retrieveTo());
+
                                 }
                                 else {
                                     System.out.println("\nNot Valid Transaction");
@@ -120,14 +122,15 @@ public class application{
                             }
                             else break;
 
+
                         case 2:
 
                             User.showUsers();
                             loggedInUser.getContacts().addContact();
-
                             break;
 
                         case 3:
+
                             preferredAccount = loggedInUser.chooseBankAccount();
                             System.out.println(preferredAccount.displayTransactions());
                             break;
@@ -146,61 +149,70 @@ public class application{
                             break;
 
                         case 5:
+
                             loggedInUser.getContacts().showContacts();
                             break;
 
                         case 6:
+
                             loggedInUser.getWallet().addBankAccount();
                             break;
 
                         case 7:
+
                             System.out.println(loggedInUser.getWallet().displayWallet());
                             break;
+
                         case 8:
+
                             preferredAccount = loggedInUser.chooseBankAccount();
                             PaymentInfo info = BankSystem.createPayment();
                             System.out.println(loggedInUser.toString());
                             System.out.println("Please confirm your Payment of "+ info.paymentAmount + " at " + info.store);
-
                             ans = input.next();
 
-                            if(ans.equals("yes"))
-                            {
+                            if(ans.equals("yes")) {
 
                                 Transaction transaction = new Transaction(preferredAccount,
                                         BankSystem.Bank, info.paymentAmount, BankSystem.transactions.size(), "payment");
 
                                 BankSystem.validateTransaction(transaction);
 
-                                if (transaction.isValid()) {
-                                    transaction.executeTransfer();
+                                if (transaction.isValid()){
 
+                                    transaction.executeTransfer();
                                     BankSystem.transactions.add(transaction);
 
-                                } else {
+                                }
+                                else {
                                     System.out.println("\nNot Valid Transaction");
                                 }
                             }
-                            else
-                            {
+                            else {
                                 System.out.println("The payment is canceled.");
                             }
+
                             break;
 
+
                         case 9:
+
                             if(loggedInUser.getWallet().bankAccounts.size() > 1)
                             {
                                 System.out.println("Please choose a Depositor Account");
                                 BankAccount depositorAccount = loggedInUser.chooseBankAccount();
                                 System.out.println("Please choose a Beneficiary Account");
                                 BankAccount beneficiaryAccount = loggedInUser.chooseBankAccount();
-                                while(depositorAccount.getIban().equals(beneficiaryAccount.getIban()))
-                                {
+
+                                while(depositorAccount.getIban().equals(beneficiaryAccount.getIban())) {
+
                                     System.out.println("Please choose a Depositor Account");
                                     depositorAccount = loggedInUser.chooseBankAccount();
                                     System.out.println("Please choose a Beneficiary Account");
                                     beneficiaryAccount = loggedInUser.chooseBankAccount();
+
                                 }
+
                                 System.out.println(" \n-- Give Transfer Amount:");
                                 float amount = input.nextInt();
 
@@ -210,11 +222,9 @@ public class application{
                                 BankSystem.validateTransaction(transaction);
 
                                 if (transaction.isValid()) {
+
                                     transaction.executeTransfer();
-
                                     BankSystem.transactions.add(transaction);
-
-
                                     System.out.println(
                                             ". Iban: "+depositorAccount.getIban()+ " Balance: "+ depositorAccount.getBalance()+"\n" +
                                             ". Iban: "+beneficiaryAccount.getIban()+ " Balance: "+ beneficiaryAccount.getBalance()+"\n");
@@ -223,10 +233,10 @@ public class application{
                                     System.out.println("\nNot Valid Transaction");
                                 }
                             }
-                            else
-                            {
+                            else {
                                 System.out.println("You need more than one bank account.");
                             }
+
                             break;
                     }
 
