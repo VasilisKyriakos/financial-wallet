@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../code versions/code/VaultMe/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../code versions/code/VaultMe/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="5bbb3bdf-7b7c-46d0-be7b-f219247b85ea" name="Changes" comment="New code">
       <change beforePath="$PROJECT_DIR$/../../../code versions/code/VaultMe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../code versions/code/VaultMe/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../code/VaultMe/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../code/VaultMe/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +43,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
 }]]></component>
   <component name="RecentsManager">
