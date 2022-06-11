@@ -9,7 +9,7 @@ class PaymentInfo
     float paymentAmount;
 }
 public class BankSystem {
-    public static ArrayList<Transaction> transactions = new ArrayList<Transaction>();
+
 
     static String[] stores = {"Store1", "Store2","Store3","Store4","Store5"};
 

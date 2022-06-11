@@ -102,14 +102,14 @@ public class application{
                                 float amount = input.nextInt();
 
                                 Transaction transaction = new Transaction(preferredAccount,
-                                        loggedInUser.getContacts().retrieveContacts().getWallet().bankAccounts.get(0), amount, BankSystem.transactions.size() , "transfer" );
+                                        loggedInUser.getContacts().retrieveContacts().getWallet().bankAccounts.get(0), amount, History.transactions.size() , "transfer" );
 
                                 BankSystem.validateTransaction(transaction);
 
                                 if (transaction.isValid()) {
 
                                     transaction.executeTransfer();
-                                    BankSystem.transactions.add(transaction);
+                                    History.transactions.add(transaction);
                                     System.out.println(loggedInUser.toString());
                                     System.out.println(loggedInUser.getContacts().retrieveTo());
 
@@ -131,8 +131,16 @@ public class application{
 
                         case 3:
 
-                            preferredAccount = loggedInUser.chooseBankAccount();
-                            System.out.println(preferredAccount.displayTransactions());
+                            System.out.println("Select Type \n 1. Outgoing \n 2. Ingoing \n 3. All \n");
+                            int j = input.nextInt();
+
+                            switch (j) {
+
+                                case 1 -> System.out.println(History.showHistory(HistoryGroups.Outgoing));
+                                case 2 -> System.out.println(History.showHistory(HistoryGroups.Ingoing));
+                                case 3 -> System.out.println(History.showHistory(HistoryGroups.All));
+                            }
+
                             break;
 
                         case 4:
@@ -174,14 +182,14 @@ public class application{
                             if(ans.equals("yes")) {
 
                                 Transaction transaction = new Transaction(preferredAccount,
-                                        BankSystem.Bank, info.paymentAmount, BankSystem.transactions.size(), "payment");
+                                        BankSystem.Bank, info.paymentAmount, History.transactions.size(), "payment");
 
                                 BankSystem.validateTransaction(transaction);
 
                                 if (transaction.isValid()){
 
                                     transaction.executeTransfer();
-                                    BankSystem.transactions.add(transaction);
+                                    History.transactions.add(transaction);
 
                                 }
                                 else {
@@ -217,14 +225,14 @@ public class application{
                                 float amount = input.nextInt();
 
                                 Transaction transaction = new Transaction(depositorAccount,
-                                       beneficiaryAccount, amount, BankSystem.transactions.size() , "first-party transfer" );
+                                       beneficiaryAccount, amount, History.transactions.size() , "first-party transfer" );
 
                                 BankSystem.validateTransaction(transaction);
 
                                 if (transaction.isValid()) {
 
                                     transaction.executeTransfer();
-                                    BankSystem.transactions.add(transaction);
+                                    History.transactions.add(transaction);
                                     System.out.println(
                                             ". Iban: "+depositorAccount.getIban()+ " Balance: "+ depositorAccount.getBalance()+"\n" +
                                             ". Iban: "+beneficiaryAccount.getIban()+ " Balance: "+ beneficiaryAccount.getBalance()+"\n");

@@ -48,14 +48,10 @@ public class BankAccount {
         balance = _balance;
     }
 
-
-    public String displayTransactions(){
-
-        String out = "*** Transaction List ***\n";
-        for(Transaction transaction : BankSystem.transactions){
-            if(application.loggedInUser.getWallet().bankAccounts.contains(transaction.getFrom()))
-                out = out.concat("Transaction Id: "+transaction.getId()+ " Type: "+transaction.getType()+"\n");
-        }
-        return out;
+    public String toString(){
+        return iban;
     }
+
+
+
 }
